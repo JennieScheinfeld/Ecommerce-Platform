@@ -1,0 +1,21 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 20px;
+    grid-row: 1; 
+    grid-column: 1;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+input {
+    margin: 10px;
+}
+
+#errorMsg {
+    color: red;
+    margin-bottom: 20px;
+}

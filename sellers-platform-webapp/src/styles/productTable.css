@@ -1,0 +1,16 @@
+.listContainer {
+    /* display: inline-grid; */
+    /*grid-template-rows: auto auto;  Two rows with automatic height */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* Two columns with equal width */
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 10px;
+    grid-row: 1; 
+    grid-column: 2 / 5;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.item {
+    margin: 10px;
+    text-align: center;
+}

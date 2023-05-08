@@ -1,0 +1,13 @@
+.button {
+    background-color: Transparent;
+    margin: 20px;
+    width: 130px;
+    padding:5px;
+    border-radius: 5px;
+    border: 1px solid white;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: white;
+}
+.button:hover {
+    color: pink;
+}
