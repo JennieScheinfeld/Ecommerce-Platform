@@ -13,6 +13,7 @@ function MyForm() {
     Product_link: ''
   });
   const [error, setError] = useState(null)
+  const [submited, setSubmited] = useState(false)
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -57,7 +58,6 @@ function MyForm() {
     if (data.error) {
       setError(data.error)
     }
-    // Reset form fields
     setFormData({
         ASIN: '',
         Locale: '',
@@ -67,6 +67,10 @@ function MyForm() {
         Product_name: '',
         Product_link: ''
     });
+    setSubmited(true)
+    setTimeout(() => {
+      setSubmited(false)
+    }, 2000)
     })
     .catch((error) => {
     console.error('Error:', error);
@@ -137,7 +141,7 @@ function MyForm() {
         />
       </label>
       <br />
-      <button className="button" type="submit">Add Product</button>
+      {!submited ? <button className="button" type="submit">Add Product</button> : <div style={{ color: "pink"}}>Submited!</div>}
     </form>
     </div>
 

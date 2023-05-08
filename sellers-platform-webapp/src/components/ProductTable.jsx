@@ -4,52 +4,52 @@ import '../styles/buttons.css'
 
 
 
-function ProductList({ refresh, sellerName }) {
-    const [products, setProducts] = useState([])
+function ProductList({ products, onDeletion }) {
+    // const [products, setProducts] = useState([])
 
-    useEffect(() => {
-      fetch(`http://localhost:4000/seller_products/by_seller/?seller_name=${sellerName}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(response => {
-          return response.json()
-        })
-        .then(data => {
-          console.log("data:", data)
-          setProducts(data)
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    }, [sellerName])
+    // useEffect(() => {
+    //   fetch(`http://localhost:4000/seller_products/by_seller/?seller_name=${sellerName}`, {
+    //       method: 'GET',
+    //       headers: {
+    //         'Content-Type': 'application/json'
+    //       }
+    //     })
+    //     .then(response => {
+    //       return response.json()
+    //     })
+    //     .then(data => {
+    //       console.log("data:", data)
+    //       // setProducts(data)
+    //     })
+    //     .catch(err => {
+    //       console.log(err)
+    //     })
+    // }, [sellerName])
   
-    const deleteFromDB = (ASIN, Locale) => {
-      fetch(`http://localhost:4000/seller_products`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          products: [
-            { ASIN, Locale}
-          ]
-        })
-      })
-    }
+    // const deleteFromDB = (ASIN, Locale) => {
+    //   fetch(`http://localhost:4000/seller_products`, {
+    //     method: 'DELETE',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       products: [
+    //         { ASIN, Locale}
+    //       ]
+    //     })
+    //   })
+    // }
   
-    const handleClick = (ASIN, Locale) => {
-      try {
-        deleteFromDB(ASIN, Locale)
-        const tempList = [...products]
-        const updatedList = tempList.filter(product => product.ASIN !== ASIN || product.Locale !== Locale)
-        setProducts(updatedList)
-      } catch(err) {
-        console.log("error deleting:", {ASIN, Locale})
-      }
-    }
+    // const handleClick = (ASIN, Locale) => {
+    //   try {
+    //     deleteFromDB(ASIN, Locale)
+    //     const tempList = [...products]
+    //     const updatedList = tempList.filter(product => product.ASIN !== ASIN || product.Locale !== Locale)
+    //     // setProducts(updatedList)
+    //   } catch(err) {
+    //     console.log("error deleting:", {ASIN, Locale})
+    //   }
+    // }
   
 
 
@@ -76,7 +76,7 @@ function ProductList({ refresh, sellerName }) {
                     <td>{product.Product_name}</td>
                     <td>{product.Product_link}</td>
                     <td>
-                      <button className='button' style= {{width: "50px"}} onClick={() => handleClick(product.ASIN, product.Locale)}>Delete</button>                 
+                      <button className='button' style= {{width: "50px"}} onClick={() => onDeletion(product.ASIN, product.Locale)}>Delete</button>                 
                     </td>
                 </tr>
         })}

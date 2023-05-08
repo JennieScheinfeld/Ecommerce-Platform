@@ -5,7 +5,6 @@ function SearchBar ({updateSellerName}) {
     const [sellerName, setSellerName] = useState("")
     const handleClick = (e) => {
         updateSellerName(sellerName);
-        setSellerName("")
     }
 
     const handleChange = (e) => {
