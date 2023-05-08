@@ -1,10 +1,11 @@
 import { useState } from "react";
 import '../styles/searchBar.css'
 import '../styles/buttons.css'
-function SearchBar ({onSearch}) {
+function SearchBar ({updateSellerName}) {
     const [sellerName, setSellerName] = useState("")
     const handleClick = (e) => {
-        onSearch(sellerName);
+        updateSellerName(sellerName);
+        setSellerName("")
     }
 
     const handleChange = (e) => {

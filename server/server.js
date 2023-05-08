@@ -28,15 +28,14 @@ const checkUniqueness = (req, res, next) => {
 
 // Create operation
 app.post('/seller_products', checkUniqueness, (req, res) => {
-
   const sellerProduct = req.body;
-  console.log('craete witht htse deets:', sellerProduct)
 
   db.createSellerProduct(sellerProduct, (err) => {
     if (err) {
     console.error(err.message);
     res.status(500).json({ error: 'Error creating seller product.' });
     } else {
+      console.log("created new entry:", sellerProduct)
     res.status(201).json({ message: 'Seller product created successfully.' });
     }
   });

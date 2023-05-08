@@ -4,7 +4,7 @@ import '../styles/buttons.css'
 
 
 
-function ProductList({ sellerName }) {
+function ProductList({ refresh, sellerName }) {
     const [products, setProducts] = useState([])
 
     useEffect(() => {

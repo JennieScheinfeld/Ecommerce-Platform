@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="container">
-      <SearchBar onSearch={setSellerName}/>
+      <SearchBar updateSellerName={setSellerName}/>
       <div className="gridContainer">
         <MyForm />
         <ProductList sellerName={sellerName} />
