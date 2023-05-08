@@ -34,6 +34,12 @@ function MyForm() {
       setError("Price cannot be a negative number")
         valid = false
     }
+
+    const linkRegex = /^(http|https):\/\/[\w\-]+(\.[\w\-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
+    if (!linkRegex.test(formData.Product_link)) {
+      setError("Invalid product link")
+      valid = false;
+    } 
     return valid
   }
 
